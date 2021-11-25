@@ -31,7 +31,7 @@
 
 // Distance sensor
 
-#define _DIST_ALPHA 0.75 // [2979] 알파값 설정
+#define _DIST_ALPHA 0.7 // [2979] 알파값 설정
 
 
 
@@ -40,7 +40,7 @@
 
 #define _DUTY_MIN 1698 //[2998] Servo Minimum microseconds
 
-#define _DUTY_NEU 1495 //[2983] Servo 중간값 설정
+#define _DUTY_NEU 1490 //[2983] Servo 중간값 설정
 
 #define _DUTY_MAX 1210 // [2979] Servo Max값 설정
 
@@ -66,7 +66,7 @@
 
 // PID parameters
 
-#define _KP 0.15 // [3000] K🇵값 초기화
+#define _KP 0.2 // [3000] K🇵값 초기화
 
 #define _Ki 0.3 // [3000] K¡값 초기화
 
@@ -252,9 +252,9 @@ void loop() {
       event_servo = false; //[1352]server Event handler가 false
 
       // adjust duty_curr toward duty_target by duty_chg_per_interval
-      duty_curr = 1495 + error_curr*1.8;
-      if(duty_curr > 1550) duty_curr = 1550;
-      else if(duty_curr < 1380) duty_curr = 1380;
+      duty_curr = 1490 + error_curr*2.5;
+      if(duty_curr > 1570) duty_curr = 1570;
+      else if(duty_curr < 1460) duty_curr = 1460;
       myservo.writeMicroseconds(duty_curr); 
       
       //[3000] 서보위치 업데이트 error_curr 뒤의 숫자는 수정가능 
