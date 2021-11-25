@@ -253,8 +253,8 @@ void loop() {
 
       // adjust duty_curr toward duty_target by duty_chg_per_interval
       duty_curr = 1490 + error_curr*2.5;
-      if(duty_curr > 1570) duty_curr = 1570;
-      else if(duty_curr < 1460) duty_curr = 1460;
+      if(duty_curr > 1545) duty_curr = 1545;
+      else if(duty_curr < 1435) duty_curr = 1430;
       myservo.writeMicroseconds(duty_curr); 
       
       //[3000] 서보위치 업데이트 error_curr 뒤의 숫자는 수정가능 
