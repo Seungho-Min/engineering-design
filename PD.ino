@@ -234,9 +234,9 @@ void loop() {
 
       event_servo = false; //[1352]server Event handler가 false
       // adjust duty_curr toward duty_target by duty_chg_per_interval
-      duty_curr = 1485 + error_curr*0.5;
-//      if(duty_target > _DUTY_NEU) duty_curr -= duty_chg_per_interval;
-//      if(duty_target < _DUTY_NEU) duty_curr += duty_chg_per_interval;
+      duty_curr = 1485 + error_curr*0.75;
+      if(duty_target > _DUTY_NEU) duty_curr -= duty_chg_per_interval;
+      if(duty_target < _DUTY_NEU) duty_curr += duty_chg_per_interval;
       myservo.writeMicroseconds(duty_curr); 
     
   }
