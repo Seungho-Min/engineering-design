@@ -66,7 +66,7 @@ bool event_dist, event_servo, event_serial; //[2989] 논리형 변수 설정
 double last_error;
 // Servo speed control
 int duty_chg_per_interval, duty_per_max ; // current speed (unit: us/interval)
-int duty_chg_adjust; //[1352] 주기동안 duty 변화량 변수
+int duty_adjust; //[1352] 주기동안 duty 변화량 변수
 int duty_target, duty_curr;//[1352] 서보모터의 목표위치, 서보에 실제 입력할 위치
 // PID variables
 float error_curr, error_prev, control, pterm, dterm, iterm;
@@ -95,7 +95,7 @@ void setup() {
 
   // convert angle speed into duty change per interval.
   duty_per_max = (_DUTY_MAX - _DUTY_MIN) * ((float)_SERVO_SPEED / 180) * ((float)_INTERVAL_DIST / 1000); //[2985] duty_chg_per_interval 설정
-  duty_chg_adjust = (float) duty_per_max * _INTERVAL_DIST / _R_TIME;
+  duty_adjust = (float) duty_per_max * _INTERVAL_DIST / _R_TIME;
   duty_chg_per_interval = 0;
 }
 
