@@ -144,7 +144,7 @@ void loop() {
     // adjust duty_curr toward duty_target by duty_chg_per_interval
     if (duty_target < duty_curr) {
       if (duty_chg_per_interval > -duty_per_max) {
-        duty_chg_per_interval -= duty_chg_adjust;
+        duty_chg_per_interval -= duty_adjust;
         if (duty_chg_per_interval < -duty_per_max) duty_chg_per_interval = -duty_per_max;
       }
       duty_curr += duty_chg_per_interval;
@@ -152,7 +152,7 @@ void loop() {
     }
     else if (duty_target > duty_curr) {
       if (duty_chg_per_interval < duty_per_max) {
-        duty_chg_per_interval += duty_chg_adjust;
+        duty_chg_per_interval += duty_adjust;
         if (duty_chg_per_interval > duty_per_max) duty_chg_per_interval = duty_per_max;
       }
       duty_curr += duty_chg_per_interval;
